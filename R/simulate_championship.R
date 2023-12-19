@@ -1,3 +1,14 @@
+#' Simulate a single championship
+#'
+#' @param num_teams Number of teams in the championship.
+#' @param model Which model to use to simulate the data
+#' @param params Model parameters to simulate the data
+#'
+#' @return A data frame where each row it's a game, with the teams that are playing and the result of the game
+#' @export
+#'
+#' @importFrom stats rnorm rbinom rpois rnbinom
+
 simulate_championship <- function(num_teams, model, params){
   sd_att <- params$sd_att
   sd_def <- params$sd_def
