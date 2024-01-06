@@ -11,7 +11,7 @@ The goal of footstan is to be a tool for adjusting bayesian models to football r
 You can install the development version of footstan from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
+if(!require(remotes)) install.packages("remotes")
 devtools::install_github("ArthurGontijo/footstan")
 ```
 
