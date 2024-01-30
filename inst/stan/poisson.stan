@@ -1,9 +1,9 @@
 data {
-  int<lower=1> ngames;       
-  int<lower=1> nteams;       
-  int h[ngames];             
-  int a[ngames];             
-  int y1[ngames];            
+  int<lower=1> ngames;
+  int<lower=1> nteams;
+  int h[ngames];
+  int a[ngames];
+  int y1[ngames];
   int y2[ngames];
   real beta_0_mu;
   real<lower=0> beta_0_sd;
@@ -19,11 +19,11 @@ data {
 
 parameters {
   real beta_0;
-  real home;                 
-  vector[nteams] att;   
-  vector[nteams] def;  
-  real<lower=0> sd_att;    
-  real<lower=0> sd_def;    
+  real home;
+  vector[nteams] att;
+  vector[nteams] def;
+  real<lower=0> sd_att;
+  real<lower=0> sd_def;
 }
 
 model {
@@ -43,9 +43,15 @@ model {
 generated quantities {
   int y1_pred[ngames];
   int y2_pred[ngames];
+  vector[ngames] log_lik;
 
   for (g in 1:ngames) {
     y1_pred[g] = poisson_log_rng(beta_0 + home + att[h[g]] + def[a[g]]);
     y2_pred[g] = poisson_log_rng(beta_0 + att[a[g]] + def[h[g]]);
+
+    log_lik[g] = poisson_log_lpmf(y1[g] | beta_0 + home + att[h[g]] + def[a[g]]) +
+                 poisson_log_lpmf(y2[g] | beta_0 + att[a[g]] + def[h[g]]);
   }
+
+
 }

@@ -68,10 +68,29 @@ model {
 generated quantities {
   int y1_pred[ngames];
   int y2_pred[ngames];
+  vector[ngames] log_lik;
 
   for (g in 1:ngames) {
     y1_pred[g] = bernoulli_rng(1 - p_zero_h) * poisson_log_rng(beta_0 + home + att[h[g]] + def[a[g]]);
     y2_pred[g] = bernoulli_rng(1 - p_zero_a) * poisson_log_rng(beta_0 + att[a[g]] + def[h[g]]);
+    if (y1[g] == 0){
+      log_lik[g] = log_sum_exp(
+        bernoulli_lpmf(1 | p_zero_h),
+        bernoulli_lpmf(0 | p_zero_h) + poisson_log_lpmf(y1[g] | beta_0 + home + att[h[g]] + def[a[g]])
+      );
+    }
+    else {
+      log_lik[g] = bernoulli_lpmf(0 | p_zero_h) + poisson_log_lpmf(y1[g] | beta_0 + home + att[h[g]] + def[a[g]]);
+    }
+    if (y2[g] == 0){
+      log_lik[g] += log_sum_exp(
+        bernoulli_lpmf(1 | p_zero_a),
+        bernoulli_lpmf(0 | p_zero_a) + poisson_log_lpmf(y2[g] | beta_0 + att[a[g]] + def[h[g]])
+      );
+    }
+    else {
+      log_lik[g] += bernoulli_lpmf(0 | p_zero_a) + poisson_log_lpmf(y2[g] | beta_0 + att[a[g]] + def[h[g]]);
+    }
   }
 }
 

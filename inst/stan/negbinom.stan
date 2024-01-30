@@ -51,9 +51,13 @@ model {
 generated quantities {
   int y1_pred[ngames];
   int y2_pred[ngames];
+  vector[ngames] log_lik;
 
   for (g in 1:ngames) {
     y1_pred[g] = neg_binomial_2_log_rng(beta_0 + home + att[h[g]] + def[a[g]], phi_att);
     y2_pred[g] = neg_binomial_2_log_rng(beta_0 + att[a[g]] + def[h[g]], phi_def);
+    
+    log_lik[g] = neg_binomial_2_log_lpmf(y1[g] | beta_0 + home + att[h[g]] + def[a[g]], phi_att) +
+                 neg_binomial_2_log_lpmf(y2[g] | beta_0 + att[a[g]] + def[h[g]], phi_def);
   }
 }

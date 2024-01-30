@@ -85,10 +85,12 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'negbinom', line 31, column 2 to column 24)",
                                                       " (in 'negbinom', line 48, column 2 to column 22)",
                                                       " (in 'negbinom', line 49, column 2 to column 22)",
-                                                      " (in 'negbinom', line 51, column 4 to column 88)",
-                                                      " (in 'negbinom', line 52, column 4 to column 81)",
-                                                      " (in 'negbinom', line 50, column 22 to line 53, column 3)",
-                                                      " (in 'negbinom', line 50, column 2 to line 53, column 3)",
+                                                      " (in 'negbinom', line 50, column 2 to column 25)",
+                                                      " (in 'negbinom', line 52, column 4 to column 88)",
+                                                      " (in 'negbinom', line 53, column 4 to column 81)",
+                                                      " (in 'negbinom', line 55, column 4 to line 56, column 90)",
+                                                      " (in 'negbinom', line 51, column 22 to line 57, column 3)",
+                                                      " (in 'negbinom', line 51, column 2 to line 57, column 3)",
                                                       " (in 'negbinom', line 35, column 4 to column 79)",
                                                       " (in 'negbinom', line 36, column 4 to column 72)",
                                                       " (in 'negbinom', line 34, column 22 to line 37, column 3)",
@@ -128,7 +130,8 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'negbinom', line 26, column 9 to column 15)",
                                                       " (in 'negbinom', line 27, column 9 to column 15)",
                                                       " (in 'negbinom', line 48, column 14 to column 20)",
-                                                      " (in 'negbinom', line 49, column 14 to column 20)"};
+                                                      " (in 'negbinom', line 49, column 14 to column 20)",
+                                                      " (in 'negbinom', line 50, column 9 to column 15)"};
 #include <stan_meta_header.hpp>
 class model_negbinom final : public model_base_crtp<model_negbinom> {
 private:
@@ -179,190 +182,192 @@ public:
       pos__ = std::numeric_limits<int>::min();
       
       pos__ = 1;
-      current_statement__ = 27;
+      current_statement__ = 29;
       context__.validate_dims("data initialization","ngames","int",
           context__.to_vec());
       ngames = std::numeric_limits<int>::min();
       
-      current_statement__ = 27;
+      current_statement__ = 29;
       ngames = context__.vals_i("ngames")[(1 - 1)];
-      current_statement__ = 27;
-      current_statement__ = 27;
+      current_statement__ = 29;
+      current_statement__ = 29;
       check_greater_or_equal(function__, "ngames", ngames, 1);
-      current_statement__ = 28;
+      current_statement__ = 30;
       context__.validate_dims("data initialization","nteams","int",
           context__.to_vec());
       nteams = std::numeric_limits<int>::min();
       
-      current_statement__ = 28;
-      nteams = context__.vals_i("nteams")[(1 - 1)];
-      current_statement__ = 28;
-      current_statement__ = 28;
-      check_greater_or_equal(function__, "nteams", nteams, 1);
-      current_statement__ = 29;
-      validate_non_negative_index("h", "ngames", ngames);
       current_statement__ = 30;
+      nteams = context__.vals_i("nteams")[(1 - 1)];
+      current_statement__ = 30;
+      current_statement__ = 30;
+      check_greater_or_equal(function__, "nteams", nteams, 1);
+      current_statement__ = 31;
+      validate_non_negative_index("h", "ngames", ngames);
+      current_statement__ = 32;
       context__.validate_dims("data initialization","h","int",
           context__.to_vec(ngames));
       h = std::vector<int>(ngames, std::numeric_limits<int>::min());
       
-      current_statement__ = 30;
+      current_statement__ = 32;
       assign(h, nil_index_list(), context__.vals_i("h"),
         "assigning variable h");
-      current_statement__ = 31;
+      current_statement__ = 33;
       validate_non_negative_index("a", "ngames", ngames);
-      current_statement__ = 32;
+      current_statement__ = 34;
       context__.validate_dims("data initialization","a","int",
           context__.to_vec(ngames));
       a = std::vector<int>(ngames, std::numeric_limits<int>::min());
       
-      current_statement__ = 32;
+      current_statement__ = 34;
       assign(a, nil_index_list(), context__.vals_i("a"),
         "assigning variable a");
-      current_statement__ = 33;
+      current_statement__ = 35;
       validate_non_negative_index("y1", "ngames", ngames);
-      current_statement__ = 34;
+      current_statement__ = 36;
       context__.validate_dims("data initialization","y1","int",
           context__.to_vec(ngames));
       y1 = std::vector<int>(ngames, std::numeric_limits<int>::min());
       
-      current_statement__ = 34;
+      current_statement__ = 36;
       assign(y1, nil_index_list(), context__.vals_i("y1"),
         "assigning variable y1");
-      current_statement__ = 34;
+      current_statement__ = 36;
       for (int sym1__ = 1; sym1__ <= ngames; ++sym1__) {
-        current_statement__ = 34;
-        current_statement__ = 34;
+        current_statement__ = 36;
+        current_statement__ = 36;
         check_greater_or_equal(function__, "y1[sym1__]", y1[(sym1__ - 1)], 0);
       }
-      current_statement__ = 35;
+      current_statement__ = 37;
       validate_non_negative_index("y2", "ngames", ngames);
-      current_statement__ = 36;
+      current_statement__ = 38;
       context__.validate_dims("data initialization","y2","int",
           context__.to_vec(ngames));
       y2 = std::vector<int>(ngames, std::numeric_limits<int>::min());
       
-      current_statement__ = 36;
+      current_statement__ = 38;
       assign(y2, nil_index_list(), context__.vals_i("y2"),
         "assigning variable y2");
-      current_statement__ = 36;
+      current_statement__ = 38;
       for (int sym1__ = 1; sym1__ <= ngames; ++sym1__) {
-        current_statement__ = 36;
-        current_statement__ = 36;
+        current_statement__ = 38;
+        current_statement__ = 38;
         check_greater_or_equal(function__, "y2[sym1__]", y2[(sym1__ - 1)], 0);
       }
-      current_statement__ = 37;
+      current_statement__ = 39;
       context__.validate_dims("data initialization","beta_0_mu","double",
           context__.to_vec());
       beta_0_mu = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 37;
+      current_statement__ = 39;
       beta_0_mu = context__.vals_r("beta_0_mu")[(1 - 1)];
-      current_statement__ = 38;
+      current_statement__ = 40;
       context__.validate_dims("data initialization","beta_0_sd","double",
           context__.to_vec());
       beta_0_sd = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 38;
+      current_statement__ = 40;
       beta_0_sd = context__.vals_r("beta_0_sd")[(1 - 1)];
-      current_statement__ = 38;
-      current_statement__ = 38;
+      current_statement__ = 40;
+      current_statement__ = 40;
       check_greater_or_equal(function__, "beta_0_sd", beta_0_sd, 0);
-      current_statement__ = 39;
+      current_statement__ = 41;
       context__.validate_dims("data initialization","home_mu","double",
           context__.to_vec());
       home_mu = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 39;
+      current_statement__ = 41;
       home_mu = context__.vals_r("home_mu")[(1 - 1)];
-      current_statement__ = 40;
+      current_statement__ = 42;
       context__.validate_dims("data initialization","home_sd","double",
           context__.to_vec());
       home_sd = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 40;
+      current_statement__ = 42;
       home_sd = context__.vals_r("home_sd")[(1 - 1)];
-      current_statement__ = 40;
-      current_statement__ = 40;
+      current_statement__ = 42;
+      current_statement__ = 42;
       check_greater_or_equal(function__, "home_sd", home_sd, 0);
-      current_statement__ = 41;
+      current_statement__ = 43;
       context__.validate_dims("data initialization","att_mu","double",
           context__.to_vec());
       att_mu = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 41;
+      current_statement__ = 43;
       att_mu = context__.vals_r("att_mu")[(1 - 1)];
-      current_statement__ = 42;
+      current_statement__ = 44;
       context__.validate_dims("data initialization","def_mu","double",
           context__.to_vec());
       def_mu = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 42;
+      current_statement__ = 44;
       def_mu = context__.vals_r("def_mu")[(1 - 1)];
-      current_statement__ = 43;
+      current_statement__ = 45;
       context__.validate_dims("data initialization","sd_att_mu","double",
           context__.to_vec());
       sd_att_mu = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 43;
+      current_statement__ = 45;
       sd_att_mu = context__.vals_r("sd_att_mu")[(1 - 1)];
-      current_statement__ = 44;
+      current_statement__ = 46;
       context__.validate_dims("data initialization","sd_att_sig","double",
           context__.to_vec());
       sd_att_sig = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 44;
+      current_statement__ = 46;
       sd_att_sig = context__.vals_r("sd_att_sig")[(1 - 1)];
-      current_statement__ = 45;
+      current_statement__ = 47;
       context__.validate_dims("data initialization","sd_def_mu","double",
           context__.to_vec());
       sd_def_mu = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 45;
+      current_statement__ = 47;
       sd_def_mu = context__.vals_r("sd_def_mu")[(1 - 1)];
-      current_statement__ = 46;
+      current_statement__ = 48;
       context__.validate_dims("data initialization","sd_def_sig","double",
           context__.to_vec());
       sd_def_sig = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 46;
+      current_statement__ = 48;
       sd_def_sig = context__.vals_r("sd_def_sig")[(1 - 1)];
-      current_statement__ = 47;
+      current_statement__ = 49;
       context__.validate_dims("data initialization","phi_att_mu","double",
           context__.to_vec());
       phi_att_mu = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 47;
+      current_statement__ = 49;
       phi_att_mu = context__.vals_r("phi_att_mu")[(1 - 1)];
-      current_statement__ = 48;
+      current_statement__ = 50;
       context__.validate_dims("data initialization","phi_att_sig","double",
           context__.to_vec());
       phi_att_sig = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 48;
+      current_statement__ = 50;
       phi_att_sig = context__.vals_r("phi_att_sig")[(1 - 1)];
-      current_statement__ = 49;
+      current_statement__ = 51;
       context__.validate_dims("data initialization","phi_def_mu","double",
           context__.to_vec());
       phi_def_mu = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 49;
+      current_statement__ = 51;
       phi_def_mu = context__.vals_r("phi_def_mu")[(1 - 1)];
-      current_statement__ = 50;
+      current_statement__ = 52;
       context__.validate_dims("data initialization","phi_def_sig","double",
           context__.to_vec());
       phi_def_sig = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 50;
-      phi_def_sig = context__.vals_r("phi_def_sig")[(1 - 1)];
-      current_statement__ = 51;
-      validate_non_negative_index("att", "nteams", nteams);
       current_statement__ = 52;
-      validate_non_negative_index("def", "nteams", nteams);
+      phi_def_sig = context__.vals_r("phi_def_sig")[(1 - 1)];
       current_statement__ = 53;
-      validate_non_negative_index("y1_pred", "ngames", ngames);
+      validate_non_negative_index("att", "nteams", nteams);
       current_statement__ = 54;
+      validate_non_negative_index("def", "nteams", nteams);
+      current_statement__ = 55;
+      validate_non_negative_index("y1_pred", "ngames", ngames);
+      current_statement__ = 56;
       validate_non_negative_index("y2_pred", "ngames", ngames);
+      current_statement__ = 57;
+      validate_non_negative_index("log_lik", "ngames", ngames);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
       // Next line prevents compiler griping about no return
@@ -475,35 +480,35 @@ public:
         phi_def = stan::math::lb_constrain(phi_def, 0);
       }
       {
-        current_statement__ = 18;
+        current_statement__ = 20;
         for (int g = 1; g <= ngames; ++g) {
-          current_statement__ = 15;
+          current_statement__ = 17;
           lp_accum__.add(
             neg_binomial_2_log_lpmf<propto__>(y1[(g - 1)],
               (((beta_0 + home) + att[(h[(g - 1)] - 1)]) +
                 def[(a[(g - 1)] - 1)]), phi_att));
-          current_statement__ = 16;
+          current_statement__ = 18;
           lp_accum__.add(
             neg_binomial_2_log_lpmf<propto__>(y2[(g - 1)],
               ((beta_0 + att[(a[(g - 1)] - 1)]) + def[(h[(g - 1)] - 1)]),
               phi_def));}
-        current_statement__ = 19;
-        lp_accum__.add(normal_lpdf<propto__>(beta_0, beta_0_mu, beta_0_sd));
-        current_statement__ = 20;
-        lp_accum__.add(normal_lpdf<propto__>(home, home_mu, home_sd));
         current_statement__ = 21;
+        lp_accum__.add(normal_lpdf<propto__>(beta_0, beta_0_mu, beta_0_sd));
+        current_statement__ = 22;
+        lp_accum__.add(normal_lpdf<propto__>(home, home_mu, home_sd));
+        current_statement__ = 23;
         lp_accum__.add(
           cauchy_lpdf<propto__>(phi_att, phi_att_mu, phi_att_sig));
-        current_statement__ = 22;
+        current_statement__ = 24;
         lp_accum__.add(
           cauchy_lpdf<propto__>(phi_def, phi_def_mu, phi_def_sig));
-        current_statement__ = 23;
-        lp_accum__.add(cauchy_lpdf<propto__>(sd_att, sd_att_mu, sd_att_sig));
-        current_statement__ = 24;
-        lp_accum__.add(cauchy_lpdf<propto__>(sd_def, sd_def_mu, sd_def_sig));
         current_statement__ = 25;
-        lp_accum__.add(normal_lpdf<propto__>(att, att_mu, sd_att));
+        lp_accum__.add(cauchy_lpdf<propto__>(sd_att, sd_att_mu, sd_att_sig));
         current_statement__ = 26;
+        lp_accum__.add(cauchy_lpdf<propto__>(sd_def, sd_def_mu, sd_def_sig));
+        current_statement__ = 27;
+        lp_accum__.add(normal_lpdf<propto__>(att, att_mu, sd_att));
+        current_statement__ = 28;
         lp_accum__.add(normal_lpdf<propto__>(def, def_mu, sd_def));
       }
     } catch (const std::exception& e) {
@@ -607,23 +612,37 @@ public:
       std::vector<int> y2_pred;
       y2_pred = std::vector<int>(ngames, std::numeric_limits<int>::min());
       
-      current_statement__ = 14;
+      Eigen::Matrix<double, -1, 1> log_lik;
+      log_lik = Eigen::Matrix<double, -1, 1>(ngames);
+      stan::math::fill(log_lik, std::numeric_limits<double>::quiet_NaN());
+      
+      current_statement__ = 16;
       for (int g = 1; g <= ngames; ++g) {
-        current_statement__ = 11;
+        current_statement__ = 12;
         assign(y1_pred, cons_list(index_uni(g), nil_index_list()),
           neg_binomial_2_log_rng(
             (((beta_0 + home) + att[(h[(g - 1)] - 1)]) +
               def[(a[(g - 1)] - 1)]), phi_att, base_rng__),
           "assigning variable y1_pred");
-        current_statement__ = 12;
+        current_statement__ = 13;
         assign(y2_pred, cons_list(index_uni(g), nil_index_list()),
           neg_binomial_2_log_rng(
             ((beta_0 + att[(a[(g - 1)] - 1)]) + def[(h[(g - 1)] - 1)]),
-            phi_def, base_rng__), "assigning variable y2_pred");}
+            phi_def, base_rng__), "assigning variable y2_pred");
+        current_statement__ = 14;
+        assign(log_lik, cons_list(index_uni(g), nil_index_list()),
+          (neg_binomial_2_log_lpmf<false>(y1[(g - 1)],
+             (((beta_0 + home) + att[(h[(g - 1)] - 1)]) +
+               def[(a[(g - 1)] - 1)]), phi_att) +
+            neg_binomial_2_log_lpmf<false>(y2[(g - 1)],
+              ((beta_0 + att[(a[(g - 1)] - 1)]) + def[(h[(g - 1)] - 1)]),
+              phi_def)), "assigning variable log_lik");}
       for (int sym1__ = 1; sym1__ <= ngames; ++sym1__) {
         vars__.emplace_back(y1_pred[(sym1__ - 1)]);}
       for (int sym1__ = 1; sym1__ <= ngames; ++sym1__) {
         vars__.emplace_back(y2_pred[(sym1__ - 1)]);}
+      for (int sym1__ = 1; sym1__ <= ngames; ++sym1__) {
+        vars__.emplace_back(log_lik[(sym1__ - 1)]);}
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
       // Next line prevents compiler griping about no return
@@ -762,6 +781,7 @@ public:
     names__.emplace_back("phi_def");
     names__.emplace_back("y1_pred");
     names__.emplace_back("y2_pred");
+    names__.emplace_back("log_lik");
     } // get_param_names() 
     
   inline void get_dims(std::vector<std::vector<size_t>>& dimss__) const {
@@ -781,6 +801,8 @@ public:
     dimss__.emplace_back(std::vector<size_t>{});
     
     dimss__.emplace_back(std::vector<size_t>{});
+    
+    dimss__.emplace_back(std::vector<size_t>{static_cast<size_t>(ngames)});
     
     dimss__.emplace_back(std::vector<size_t>{static_cast<size_t>(ngames)});
     
@@ -821,6 +843,10 @@ public:
         {
           param_names__.emplace_back(std::string() + "y2_pred" + '.' + std::to_string(sym1__));
         }}
+      for (int sym1__ = 1; sym1__ <= ngames; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "log_lik" + '.' + std::to_string(sym1__));
+        }}
     }
     
     } // constrained_param_names() 
@@ -858,19 +884,23 @@ public:
         {
           param_names__.emplace_back(std::string() + "y2_pred" + '.' + std::to_string(sym1__));
         }}
+      for (int sym1__ = 1; sym1__ <= ngames; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "log_lik" + '.' + std::to_string(sym1__));
+        }}
     }
     
     } // unconstrained_param_names() 
     
   inline std::string get_constrained_sizedtypes() const {
     stringstream s__;
-    s__ << "[{\"name\":\"beta_0\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"home\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"att\",\"type\":{\"name\":\"vector\",\"length\":" << nteams << "},\"block\":\"parameters\"},{\"name\":\"def\",\"type\":{\"name\":\"vector\",\"length\":" << nteams << "},\"block\":\"parameters\"},{\"name\":\"sd_att\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_att\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_def\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y1_pred\",\"type\":{\"name\":\"array\",\"length\":" << ngames << ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"y2_pred\",\"type\":{\"name\":\"array\",\"length\":" << ngames << ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"}]";
+    s__ << "[{\"name\":\"beta_0\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"home\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"att\",\"type\":{\"name\":\"vector\",\"length\":" << nteams << "},\"block\":\"parameters\"},{\"name\":\"def\",\"type\":{\"name\":\"vector\",\"length\":" << nteams << "},\"block\":\"parameters\"},{\"name\":\"sd_att\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_att\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_def\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y1_pred\",\"type\":{\"name\":\"array\",\"length\":" << ngames << ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"y2_pred\",\"type\":{\"name\":\"array\",\"length\":" << ngames << ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" << ngames << "},\"block\":\"generated_quantities\"}]";
     return s__.str();
     } // get_constrained_sizedtypes() 
     
   inline std::string get_unconstrained_sizedtypes() const {
     stringstream s__;
-    s__ << "[{\"name\":\"beta_0\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"home\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"att\",\"type\":{\"name\":\"vector\",\"length\":" << nteams << "},\"block\":\"parameters\"},{\"name\":\"def\",\"type\":{\"name\":\"vector\",\"length\":" << nteams << "},\"block\":\"parameters\"},{\"name\":\"sd_att\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_att\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_def\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y1_pred\",\"type\":{\"name\":\"array\",\"length\":" << ngames << ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"y2_pred\",\"type\":{\"name\":\"array\",\"length\":" << ngames << ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"}]";
+    s__ << "[{\"name\":\"beta_0\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"home\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"att\",\"type\":{\"name\":\"vector\",\"length\":" << nteams << "},\"block\":\"parameters\"},{\"name\":\"def\",\"type\":{\"name\":\"vector\",\"length\":" << nteams << "},\"block\":\"parameters\"},{\"name\":\"sd_att\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_att\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_def\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y1_pred\",\"type\":{\"name\":\"array\",\"length\":" << ngames << ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"y2_pred\",\"type\":{\"name\":\"array\",\"length\":" << ngames << ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" << ngames << "},\"block\":\"generated_quantities\"}]";
     return s__.str();
     } // get_unconstrained_sizedtypes() 
     
