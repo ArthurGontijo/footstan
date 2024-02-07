@@ -6,7 +6,6 @@
 #' @param ... Arguments passed to `rstan::sampling` (e.g. iter, chains).
 #' @return An object of class `stanfit` returned by `rstan::sampling`
 #' @export
-#'
 
 fit_data <- function(data, hyperparams, model, iter=2000, chains=2, ...) {
   models <- names(stanmodels)

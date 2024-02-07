@@ -4,7 +4,7 @@
 \alias{fit_data}
 \title{Bayesian regression for football championships data}
 \usage{
-fit_data(data, hyperparams, model, ...)
+fit_data(data, hyperparams, model, iter = 2000, chains = 2, ...)
 }
 \arguments{
 \item{data}{List with the championship data.}
