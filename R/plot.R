@@ -32,13 +32,26 @@ visual_diagnostic <- function(fit, params){
 #' @param params Desired params to be graphed out
 #' @return A GGplot plot
 #' @importFrom ggplot2 ggplot geom_point labs theme
+#' @importFrom rstan extract
 #'
 
 ergotic_plot <- function(fit, param) {
-  param_data <- extract(fit)[[param]]
+
+  if (!(grepl("\\[", param))) {
+    param_data <- extract(fit)[[param]]
+  } else {
+    param_name <- sub("\\[.*", "", param)
+    index <- regmatches(param, regexpr("\\[([0-9]+)\\]", param))
+    index <- as.numeric(gsub("\\D", "", index[[1]]))
+    cat(param_name, "\n", index)
+    param_data <- extract(fit)[[param_name]][,index]
+  }
+
+
   n <- length(param_data)
   ergotic_mean <- sapply(1:n, function(i) sum(param_data[1:i]) / i)
   plot_data <- data.frame(index = 1:n, value = ergotic_mean)
+
   p <- ggplot(plot_data, aes(x = index, y = value)) +
         geom_line(color = "#689ab3") +
         labs(title = "Ergodic Mean", x = "", y = "") +
