@@ -50,7 +50,7 @@ predict <- function(fit, new_data){
   return(c(y1, y2, new_data))
 }
 
-#' Predicting new data using an already fitted model
+#' Calculate the proportions of each outcome predicted by footstan::predict
 #'
 #' @param prediction_data An object with the predictions made by the function footstan::predict
 #' @return A data frame with the proportions of wins, draws and loses for the home team in the new_data
@@ -74,8 +74,45 @@ prediction_proportions <- function(prediction_data){
   return(predicted_games)
 }
 
+#' Makes histograms for the number of goals predicted by footstan::predict
+#'
+#' @param prediction_data An object with the predictions made by the function footstan::predict
+#' @param game Desired game in the new data
+#' @param team Which team the user wants to visualize the estimated goals
+#' @param home_name Name of the home team for visualization purposes.
+#' @param away_name Name of the away team for visualization purposes.
+#' @param fill_color Fill color for the histogram's bar.
+#' @param bin_width Bin width for the histogram
+#' @return A ggplot2 plot
+#' @import ggplot2
+#' @export
 
 
+goals_histogram <- function(prediction_data, game, team=c("both", "home", "away"), home_team = "Home Team", away_team = "Away Team", fill_color = "blue", bin_width = 1){
+  y <- 0
+  graph_title <-  ""
+  team <- team[1]
+  if(team == "both"){
+    y <- prediction_data[[paste0("y1_", game)]] + prediction_data[[paste0("y2_", game)]]
+    graph_title <-  "Predicted frequency of goals by both teams"
+  } else if(team == "home"){
+    y <- prediction_data[[paste0("y1_", game)]]
+    graph_title <- paste("Predicted frequency of goals by", home_team)
+  } else {
+    y <- prediction_data[[paste0("y2_", game)]]
+    graph_title <-  paste("Predicted frequency of goals by", away_team)
+  }
+
+  ggplot(data = data.frame(y = y), aes(y)) +
+    geom_histogram(binwidth = bin_width, fill = fill_color, color = "black", alpha = 0.7) +
+    geom_text(stat = "count", aes(label = scales::percent(after_stat(count / sum(count)))), vjust = -0.5) +
+    labs(title = graph_title, x = "", y = "") +
+    theme_minimal()+
+    theme(
+      plot.title = element_text(hjust = 0.5),
+      axis.title.x = element_text(hjust = 0.5)
+    )
+}
 
 
 

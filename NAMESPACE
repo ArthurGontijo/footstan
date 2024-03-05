@@ -2,6 +2,7 @@
 
 export(fit_data)
 export(generate_sample_data)
+export(goals_histogram)
 export(predict)
 export(prediction_proportions)
 export(simulate_championship)

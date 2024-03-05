@@ -2,7 +2,7 @@
 % Please edit documentation in R/predict.R
 \name{prediction_proportions}
 \alias{prediction_proportions}
-\title{Predicting new data using an already fitted model}
+\title{Calculate the proportions of each outcome predicted by footstan::predict}
 \usage{
 prediction_proportions(prediction_data)
 }
@@ -13,5 +13,5 @@ prediction_proportions(prediction_data)
 A data frame with the proportions of wins, draws and loses for the home team in the new_data
 }
 \description{
-Predicting new data using an already fitted model
+Calculate the proportions of each outcome predicted by footstan::predict
 }
