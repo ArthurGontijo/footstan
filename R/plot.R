@@ -4,7 +4,7 @@
 #' @param params Desired params to be graphed out
 #' @return A GGplot plot
 #' @import gridExtra
-#' @importFrom ggplot2 ylab
+#' @import ggplot2
 #' @importFrom bayesplot mcmc_dens mcmc_acf_bar mcmc_trace
 #' @export
 #'
@@ -43,7 +43,6 @@ ergotic_plot <- function(fit, param) {
     param_name <- sub("\\[.*", "", param)
     index <- regmatches(param, regexpr("\\[([0-9]+)\\]", param))
     index <- as.numeric(gsub("\\D", "", index[[1]]))
-    cat(param_name, "\n", index)
     param_data <- extract(fit)[[param_name]][,index]
   }
 

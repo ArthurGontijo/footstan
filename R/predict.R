@@ -15,22 +15,36 @@ predict <- function(fit, new_data){
   def <- fit_data$def
   n_samples <- nrow(beta_0)
 
-  if(model == "poisson"){
-    y1 <- list()
-    y2 <- list()
-    for(i in 1:nrow(new_data)){
-      h <- new_data[i, ]$h
-      a <- new_data[i, ]$a
+  y1 <- list()
+  y2 <- list()
 
-      theta_1 <- beta_0 + home + att[, h] + def[, a]
-      theta_2 <- beta_0 + att[, a] + def[, h]
+  for(i in 1:nrow(new_data)){
+    h <- new_data[i, ]$h
+    a <- new_data[i, ]$a
 
+    theta_1 <- beta_0 + home + att[, h] + def[, a]
+    theta_2 <- beta_0 + att[, a] + def[, h]
+
+    if(model == "poisson"){
       y1_new <- rpois(n_samples, exp(theta_1))
       y2_new <- rpois(n_samples, exp(theta_2))
-
-      y1[[paste0("y1_", i)]] <- y1_new
-      y2[[paste0("y2_", i)]] <- y2_new
     }
+
+    else if(model == "negbinom"){
+      y1_new <- rnbinom(n_samples, mu=exp(theta_1), size=fit_data$phi_att)
+      y2_new <- rnbinom(n_samples, mu=exp(theta_2), size=fit_data$phi_def)
+    }
+
+    else if(model == "poisson_infl"){
+      p_zero_h <- fit_data$p_zero_h
+      p_zero_a <- fit_data$p_zero_a
+
+      y1_new <- rpois(n_samples, exp(theta_1)) * (1 - rbinom(n_samples, 1, (p_zero_h)))
+      y2_new <- rpois(n_samples, exp(theta_2)) * (1 - rbinom(n_samples, 1, (p_zero_a)))
+    }
+
+    y1[[paste0("y1_", i)]] <- y1_new
+    y2[[paste0("y2_", i)]] <- y2_new
   }
 
   return(c(y1, y2, new_data))
