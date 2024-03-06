@@ -37,11 +37,11 @@ simulate_championship <- function(num_teams, model, params){
   }
 
   else if(model == "negbinom"){
-    phi_att <- params$phi_att
-    phi_def <- params$phi_def
+    phi_home <- params$phi_home
+    phi_away <- params$phi_away
 
-    y1 <- rnbinom(num_games, mu=exp(theta_1), size=phi_att)
-    y2 <- rnbinom(num_games, mu=exp(theta_2), size=phi_def)
+    y1 <- rnbinom(num_games, mu=exp(theta_1), size=phi_home)
+    y2 <- rnbinom(num_games, mu=exp(theta_2), size=phi_away)
   }
 
   else if(model == "poisson_infl"){
