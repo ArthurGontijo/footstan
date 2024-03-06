@@ -31,8 +31,8 @@ predict <- function(fit, new_data){
     }
 
     else if(model == "negbinom"){
-      y1_new <- rnbinom(n_samples, mu=exp(theta_1), size=fit_data$phi_att)
-      y2_new <- rnbinom(n_samples, mu=exp(theta_2), size=fit_data$phi_def)
+      y1_new <- rnbinom(n_samples, mu=exp(theta_1), size=fit_data$phi_home)
+      y2_new <- rnbinom(n_samples, mu=exp(theta_2), size=fit_data$phi_away)
     }
 
     else if(model == "poisson_infl"){
