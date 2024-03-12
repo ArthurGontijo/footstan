@@ -2,7 +2,7 @@
 % Please edit documentation in R/predict.R
 \name{plot_predictions}
 \alias{plot_predictions}
-\title{Makes histograms for the number of goals predicted by footstan::predict}
+\title{Plot the proportions of outcomes predicted by footstan::predict}
 \usage{
 plot_predictions(predictions, team_names = NULL)
 }
@@ -15,5 +15,5 @@ plot_predictions(predictions, team_names = NULL)
 A ggplot2 plot
 }
 \description{
-Makes histograms for the number of goals predicted by footstan::predict
+Plot the proportions of outcomes predicted by footstan::predict
 }

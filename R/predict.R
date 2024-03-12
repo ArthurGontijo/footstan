@@ -11,8 +11,6 @@ predict <- function(fit, new_data){
   fit_data <- rstan::extract(fit)
   beta_0 <- fit_data$beta_0
   home <- fit_data$home
-  att <- fit_data$att
-  def <- fit_data$def
   n_samples <- nrow(beta_0)
 
   y1 <- list()
@@ -22,8 +20,13 @@ predict <- function(fit, new_data){
     h <- new_data[i, ]$h
     a <- new_data[i, ]$a
 
-    theta_1 <- beta_0 + home + att[, h] + def[, a]
-    theta_2 <- beta_0 + att[, a] + def[, h]
+    if(model != "poisson_2"){
+      att <- fit_data$att
+      def <- fit_data$def
+
+      theta_1 <- beta_0 + home + att[, h] + def[, a]
+      theta_2 <- beta_0 + att[, a] + def[, h]
+    }
 
     if(model == "poisson"){
       y1_new <- rpois(n_samples, exp(theta_1))
@@ -41,6 +44,19 @@ predict <- function(fit, new_data){
 
       y1_new <- rpois(n_samples, exp(theta_1)) * (1 - rbinom(n_samples, 1, (p_zero_h)))
       y2_new <- rpois(n_samples, exp(theta_2)) * (1 - rbinom(n_samples, 1, (p_zero_a)))
+    }
+
+    else if(model == "poisson_2"){
+      att_h <- fit_data$att_h
+      att_a <- fit_data$att_a
+      def_h <- fit_data$def_h
+      def_a <- fit_data$def_a
+
+      theta_1 <- beta_0 + home + att_h[, h] + def_a[, a]
+      theta_2 <- beta_0 + att_a[, a] + def_h[, h]
+
+      y1_new <- rpois(n_samples, exp(theta_1))
+      y2_new <- rpois(n_samples, exp(theta_2))
     }
 
     y1[[paste0("y1_", i)]] <- y1_new
