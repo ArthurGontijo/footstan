@@ -145,8 +145,8 @@ plot_predictions <- function(predictions, team_names = NULL){
   proportions <- footstan::prediction_proportions(predictions)
 
   if(!(is.null(team_names))){
-    proportions$h <- team_names$names[proportions$h]
-    proportions$a <- team_names$names[proportions$a]
+    proportions$h <- team_names[which(team_names$id == proportions$h), ]$names
+    proportions$a <- team_names[which(team_names$id == proportions$a), ]$names
     game_names <- paste(proportions$h, "X", proportions$a)
   } else {
     game_names <- paste("Team ", proportions$h, "X", "Team ", proportions$a)
