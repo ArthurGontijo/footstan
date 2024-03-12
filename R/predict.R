@@ -115,4 +115,49 @@ goals_histogram <- function(prediction_data, game, team=c("both", "home", "away"
 }
 
 
+#' Plot the proportions of outcomes predicted by footstan::predict
+#'
+#' @param predictions An object with the predictions made by the function footstan::predict
+#' @param team_names A data frame with ids and names to translate the ids into names to the plot
+#' @return A ggplot2 plot
+#' @import ggplot2
+#' @importFrom tidyr gather
+#' @importFrom forcats fct_rev
+#' @export
+
+plot_predictions <- function(predictions, team_names = NULL){
+  proportions <- footstan::prediction_proportions(predictions)
+
+  if(!(is.null(team_names))){
+    proportions$h <- team_names$names[proportions$h]
+    proportions$a <- team_names$names[proportions$a]
+    game_names <- paste(proportions$h, "X", proportions$a)
+  } else {
+    game_names <- paste("Team ", proportions$h, "X", "Team ", proportions$a)
+  }
+
+  proportions['game_id'] <- as.factor(1:nrow(proportions))
+  proportions['game_name'] <- game_names
+
+  proportions_long <- gather(proportions, key = "Variable", value = "Value", -game_id, -game_name, -h, -a)
+
+  ggplot(proportions_long, aes(x = fct_rev(game_id), y = Value, fill = factor(Variable, levels = c("home_lost", "draw", "home_win")))) +
+    geom_bar(stat = "identity", position = "stack") +
+    geom_text(aes(label = scales::percent(Value)), position = position_stack(vjust = 0.5), color = "white") +
+    labs(title = "", x = "", y = "") +
+    scale_fill_manual(values = c("home_lost" = "#e74c3c", "draw" = "#bdc3c7", "home_win" = "#2ecc71"),
+                      labels = c("Home Team Defeat", "Tie", "Home Team Victory"),
+                      limits = c("home_win", "draw", "home_lost")) +
+    theme_minimal() +
+    theme(legend.title=element_blank(),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.border = element_blank(),
+          panel.background = element_blank(),
+          axis.title.y = element_blank()) +
+    scale_x_discrete(labels = rev(proportions_long$game_name)) +
+    coord_flip()
+}
+
+
 
