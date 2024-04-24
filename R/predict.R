@@ -4,9 +4,11 @@
 #' @param new_data List with the championship data.
 #' @return A vector with generated samples from the fitted model
 #' @export
+#'
 
 predict <- function(fit, new_data){
   model <- fit@model_name
+  special_models <- c("poisson_2", "negbinom_2", "poisson_infl_2")
 
   fit_data <- rstan::extract(fit)
   beta_0 <- fit_data$beta_0
@@ -20,7 +22,7 @@ predict <- function(fit, new_data){
     h <- new_data[i, ]$h
     a <- new_data[i, ]$a
 
-    if(model != "poisson_2"){
+    if(!(model %in% special_models)){
       att <- fit_data$att
       def <- fit_data$def
 
@@ -46,7 +48,7 @@ predict <- function(fit, new_data){
       y2_new <- rpois(n_samples, exp(theta_2)) * (1 - rbinom(n_samples, 1, (p_zero_a)))
     }
 
-    else if(model == "poisson_2"){
+    else if(model %in% special_models){
       att_h <- fit_data$att_h
       att_a <- fit_data$att_a
       def_h <- fit_data$def_h
@@ -55,8 +57,23 @@ predict <- function(fit, new_data){
       theta_1 <- beta_0 + home + att_h[, h] + def_a[, a]
       theta_2 <- beta_0 + att_a[, a] + def_h[, h]
 
-      y1_new <- rpois(n_samples, exp(theta_1))
-      y2_new <- rpois(n_samples, exp(theta_2))
+      if(model == "poisson_2"){
+        y1_new <- rpois(n_samples, exp(theta_1))
+        y2_new <- rpois(n_samples, exp(theta_2))
+      }
+
+      else if(model == "negbinom_2"){
+        y1_new <- rnbinom(n_samples, mu=exp(theta_1), size=fit_data$phi_home)
+        y2_new <- rnbinom(n_samples, mu=exp(theta_2), size=fit_data$phi_away)
+      }
+
+      else if(model == "poisson_infl_2"){
+        p_zero_h <- fit_data$p_zero_h
+        p_zero_a <- fit_data$p_zero_a
+
+        y1_new <- rpois(n_samples, exp(theta_1)) * (1 - rbinom(n_samples, 1, (p_zero_h)))
+        y2_new <- rpois(n_samples, exp(theta_2)) * (1 - rbinom(n_samples, 1, (p_zero_a)))
+      }
     }
 
     y1[[paste0("y1_", i)]] <- y1_new
@@ -162,7 +179,7 @@ plot_predictions <- function(predictions, team_names = NULL){
     geom_text(aes(label = scales::percent(Value)), position = position_stack(vjust = 0.5), color = "white") +
     labs(title = "", x = "", y = "") +
     scale_fill_manual(values = c("home_lost" = "#e74c3c", "draw" = "#bdc3c7", "home_win" = "#2ecc71"),
-                      labels = c("Home Team Defeat", "Tie", "Home Team Victory"),
+                      labels = c("Home Team Victory", "Tie", "Home Team Defeat"),
                       limits = c("home_win", "draw", "home_lost")) +
     theme_minimal() +
     theme(legend.title=element_blank(),

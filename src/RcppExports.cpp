@@ -13,15 +13,19 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 
 RcppExport SEXP _rcpp_module_boot_stan_fit4negbinom_mod();
+RcppExport SEXP _rcpp_module_boot_stan_fit4negbinom_2_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4poisson_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4poisson_2_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4poisson_infl_mod();
+RcppExport SEXP _rcpp_module_boot_stan_fit4poisson_infl_2_mod();
 
 static const R_CallMethodDef CallEntries[] = {
     {"_rcpp_module_boot_stan_fit4negbinom_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4negbinom_mod, 0},
+    {"_rcpp_module_boot_stan_fit4negbinom_2_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4negbinom_2_mod, 0},
     {"_rcpp_module_boot_stan_fit4poisson_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4poisson_mod, 0},
     {"_rcpp_module_boot_stan_fit4poisson_2_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4poisson_2_mod, 0},
     {"_rcpp_module_boot_stan_fit4poisson_infl_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4poisson_infl_mod, 0},
+    {"_rcpp_module_boot_stan_fit4poisson_infl_2_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4poisson_infl_2_mod, 0},
     {NULL, NULL, 0}
 };
 

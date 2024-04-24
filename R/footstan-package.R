@@ -2,7 +2,7 @@
 #'
 #' @description A DESCRIPTION OF THE PACKAGE
 #'
-#' @docType package
+#' @docType _PACKAGE
 #' @name footstan-package
 #' @aliases footstan
 #' @useDynLib footstan, .registration = TRUE
