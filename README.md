@@ -11,7 +11,7 @@ The goal of footstan is to be a tool for adjusting bayesian models to football r
 You can install the development version of footstan from [GitHub](https://github.com/) with:
 
 ``` r
-if(!require(remotes)) install.packages("remotes")
+if(!require(devtools)) install.packages("devtools")
 devtools::install_github("ArthurGontijo/footstan")
 ```
 
@@ -54,7 +54,7 @@ sd_def_hyp <- c(0, 2.5)
 To fit the model, we simply run:
 
 ```r
-fit <- fit_data(data = games, 
+fit <- fit_poisson(data = games, 
                 beta_0_hyp = beta_0_hyp,
                 home_hyp = home_hyp,
                 sd_att_hyp = sd_att_hyp,
