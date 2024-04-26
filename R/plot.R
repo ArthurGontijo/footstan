@@ -1,38 +1,44 @@
 #' Plot diagnostic graphics for the MCMC chains
 #'
 #' @param fit A footstanfit object.
-#' @param param Desired param to be graphed out
+#' @param params A character vector with the desired parameters to be ploted
 #' @return A GGplot plot
 #' @import gridExtra
 #' @import ggplot2
-#' @importFrom bayesplot mcmc_dens mcmc_acf_bar mcmc_trace
+#' @import grid
 #' @export
 #'
 
-visual_diagnostic <- function(fit, param){
-  dens_plot <- dens_plot(fit, param)
-  autocorrelation <- acf_plot(fit, param)
-  trace_plot <- trace_plot(fit, param)
-  ergotic_p <- ergotic_plot(fit, param)
-  plot_layout <- rbind(c(1, 2),
-                       c(1, 3),
-                       c(4, 4))
+visual_diagnostic <- function(fit, params){
+  for(param in params){
+    dens_plot <- dens_plot(fit, param)
+    autocorrelation <- acf_plot(fit, param)
+    trace_plot <- trace_plot(fit, param)
+    ergotic_p <- ergotic_plot(fit, param)
+    plot_layout <- rbind(c(1, 2),
+                         c(1, 3),
+                         c(4, 4))
 
-  num_chains <- length(dens_plot)
-  for(i in 1:num_chains){
-    p <- gridExtra::grid.arrange(dens_plot[[i]], autocorrelation[[i]],
-                                 ergotic_p[[i]], trace_plot[[i]],
-                                 layout_matrix = plot_layout)
-    p
+    num_chains <- length(dens_plot)
 
-    readline(prompt = "Hit <Return> to see plot for the next chain: ")
+    title <- textGrob(param, gp = gpar(fontsize = 12, fontface = "bold"))
+
+    for(i in 1:num_chains){
+      p <- gridExtra::grid.arrange(dens_plot[[i]], autocorrelation[[i]],
+                                   ergotic_p[[i]], trace_plot[[i]],
+                                   layout_matrix = plot_layout,
+                                   top = title)
+      p
+
+      readline(prompt = "Hit <Return> to see the next plot: ")
+    }
   }
 }
 
 #' Plot ergotic mean of a param
 #'
 #' @param fit A footstanfit object.
-#' @param params Desired params to be graphed out
+#' @param param Desired param to be graphed out
 #' @return A GGplot plot
 #' @importFrom ggplot2 ggplot geom_point labs theme
 #' @importFrom rstan extract
@@ -78,7 +84,7 @@ ergotic_plot <- function(fit, param) {
 #' Plot the draws for each chain
 #'
 #' @param fit A footstanfit object.
-#' @param params Desired params to be graphed out
+#' @param param Desired param to be graphed out
 #' @return A GGplot plot
 #' @importFrom ggplot2 ggplot geom_point labs theme
 #' @importFrom rstan extract
@@ -117,7 +123,7 @@ trace_plot <- function(fit, param) {
 #' Plot the distribution of the draws for each chain
 #'
 #' @param fit A footstanfit object.
-#' @param params Desired params to be graphed out
+#' @param param Desired param to be graphed out
 #' @return A GGplot plot
 #' @importFrom ggplot2 ggplot geom_point labs theme
 #' @importFrom rstan extract
@@ -155,7 +161,7 @@ dens_plot <- function(fit, param) {
 #' Plot the autocorrelation for each chain
 #'
 #' @param fit A footstanfit object.
-#' @param params Desired params to be graphed out
+#' @param param Desired param to be graphed out
 #' @return A GGplot plot
 #' @importFrom ggplot2 ggplot geom_point labs theme
 #' @importFrom rstan extract
@@ -175,7 +181,7 @@ acf_plot <- function(fit, param) {
   # Generate plots for each chain using lapply
   plot_list <- lapply(1:(ncol(param_data)), function(i) {
     chain <- paste0("chain ", i)
-    acf_data <- acf(param_data[[chain]], plot = F)
+    acf_data <- stats::acf(param_data[[chain]], plot = F)
     acf_df <- data.frame(
       Lag = acf_data$lag,
       ACF = acf_data$acf

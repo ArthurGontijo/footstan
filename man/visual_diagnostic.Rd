@@ -4,12 +4,12 @@
 \alias{visual_diagnostic}
 \title{Plot diagnostic graphics for the MCMC chains}
 \usage{
-visual_diagnostic(fit, param)
+visual_diagnostic(fit, params)
 }
 \arguments{
 \item{fit}{A footstanfit object.}
 
-\item{param}{Desired param to be graphed out}
+\item{params}{A character vector with the desired parameters to be ploted}
 }
 \value{
 A GGplot plot

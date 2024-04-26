@@ -9,7 +9,7 @@ dens_plot(fit, param)
 \arguments{
 \item{fit}{A footstanfit object.}
 
-\item{params}{Desired params to be graphed out}
+\item{param}{Desired param to be graphed out}
 }
 \value{
 A GGplot plot
