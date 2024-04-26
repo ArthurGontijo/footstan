@@ -21,7 +21,7 @@ visual_diagnostic <- function(fit, params){
 
     num_chains <- length(dens_plot)
 
-    title <- textGrob(param, gp = gpar(fontsize = 12, fontface = "bold"))
+    title <- textGrob(param, gp = gpar(fontsize = 16, fontface = "bold"))
 
     for(i in 1:num_chains){
       p <- gridExtra::grid.arrange(dens_plot[[i]], autocorrelation[[i]],
