@@ -80,8 +80,36 @@ predict <- function(fit, new_data){
     y2[[paste0("y2_", i)]] <- y2_new
   }
 
-  return(c(y1, y2, new_data))
+  prediction_summary(y1, y2)
+
+  invisible(c(y1, y2, new_data))
 }
+
+#' Print summary of the predictions
+#'
+#' @param y1 All the goals in home
+#' @param y2 All the goals away
+
+prediction_summary <- function(y1, y2){
+  quantiles <- c(2.5, 5, 25, 50, 75, 95, 97.5)
+  summary_df <- data.frame(matrix(ncol = 0, nrow=length(quantiles)))
+  rownames(summary_df) <- paste0(quantiles, "%")
+
+  for (i in 1:length(y1)) {
+    element_name <- paste0("y1_", i)
+    current_data <- y1[[element_name]]
+    current_quantiles <- quantile(current_data, probs = quantiles / 100)
+    summary_df[element_name] <-  current_quantiles
+
+    element_name <- paste0("y2_", i)
+    current_data <- y2[[element_name]]
+    current_quantiles <- quantile(current_data, probs = quantiles / 100)
+    summary_df[element_name] <-  current_quantiles
+  }
+  print(t(summary_df))
+}
+
+
 
 #' Calculate the proportions of each outcome predicted by footstan::predict
 #'
@@ -105,46 +133,6 @@ prediction_proportions <- function(prediction_data){
   }
 
   return(predicted_games)
-}
-
-#' Makes histograms for the number of goals predicted by footstan::predict
-#'
-#' @param prediction_data An object with the predictions made by the function footstan::predict
-#' @param game Desired game in the new data
-#' @param team Which team the user wants to visualize the estimated goals
-#' @param home_name Name of the home team for visualization purposes.
-#' @param away_name Name of the away team for visualization purposes.
-#' @param fill_color Fill color for the histogram's bar.
-#' @param bin_width Bin width for the histogram
-#' @return A ggplot2 plot
-#' @import ggplot2
-#' @export
-
-
-goals_histogram <- function(prediction_data, game, team=c("both", "home", "away"), home_team = "Home Team", away_team = "Away Team", fill_color = "blue", bin_width = 1){
-  y <- 0
-  graph_title <-  ""
-  team <- team[1]
-  if(team == "both"){
-    y <- prediction_data[[paste0("y1_", game)]] + prediction_data[[paste0("y2_", game)]]
-    graph_title <-  "Predicted frequency of goals by both teams"
-  } else if(team == "home"){
-    y <- prediction_data[[paste0("y1_", game)]]
-    graph_title <- paste("Predicted frequency of goals by", home_team)
-  } else {
-    y <- prediction_data[[paste0("y2_", game)]]
-    graph_title <-  paste("Predicted frequency of goals by", away_team)
-  }
-
-  ggplot(data = data.frame(y = y), aes(y)) +
-    geom_histogram(binwidth = bin_width, fill = fill_color, color = "black", alpha = 0.7) +
-    geom_text(stat = "count", aes(label = scales::percent(after_stat(count / sum(count)))), vjust = -0.5) +
-    labs(title = graph_title, x = "", y = "") +
-    theme_minimal()+
-    theme(
-      plot.title = element_text(hjust = 0.5),
-      axis.title.x = element_text(hjust = 0.5)
-    )
 }
 
 
@@ -176,9 +164,9 @@ plot_predictions <- function(predictions, team_names = NULL){
 
   ggplot(proportions_long, aes(x = fct_rev(game_id), y = Value, fill = factor(Variable, levels = c("home_lost", "draw", "home_win")))) +
     geom_bar(stat = "identity", position = "stack") +
-    geom_text(aes(label = scales::percent(Value)), position = position_stack(vjust = 0.5), color = "white") +
+    geom_text(aes(label = scales::percent(Value)), position = position_stack(vjust = 0.5), color = "black") +
     labs(title = "", x = "", y = "") +
-    scale_fill_manual(values = c("home_lost" = "#e74c3c", "draw" = "#bdc3c7", "home_win" = "#2ecc71"),
+    scale_fill_manual(values = c("home_lost" = "#c0392b", "draw" = "#95a5a6", "home_win" = "#27ae60"),
                       labels = c("Home Team Victory", "Tie", "Home Team Defeat"),
                       limits = c("home_win", "draw", "home_lost")) +
     theme_minimal() +
