@@ -16,15 +16,15 @@ fit_poisson(
 )
 }
 \arguments{
-\item{data}{Footbal games data}
+\item{data}{Football games data}
 
-\item{beta_0_hyp}{Vector of hyperparameters for beta_0 ~ N(beta_0_hyp\link{1}, beta_0_hyp\link{2})}
+\item{beta_0_hyp}{Vector of hyperparameters for beta_0 ~ N(beta_0_hyp\verb{[1]}, beta_0_hyp\verb{[2]})}
 
-\item{home_hyp}{Vector of hyperparameters for home ~ N(home_hyp\link{1}, home_hyp\link{2})}
+\item{home_hyp}{Vector of hyperparameters for home ~ N(home_hyp\verb{[1]}, home_hyp\verb{[2]})}
 
-\item{att_sd_hyp}{Vector of hyperparameters for att_sd ~ Cauchy(att_sd_hyp\link{1}, att_sd_hyp\link{2})}
+\item{att_sd_hyp}{Vector of hyperparameters for att_sd ~ Cauchy(att_sd_hyp\verb{[1]}, att_sd_hyp\verb{[2]})}
 
-\item{def_sd_hyp}{Vector of hyperparameters for def_sd ~ Cauchy(def_sd_hyp\link{1}, def_sd_hyp\link{2})}
+\item{def_sd_hyp}{Vector of hyperparameters for def_sd ~ Cauchy(def_sd_hyp\verb{[1]}, def_sd_hyp\verb{[2]})}
 
 \item{iter}{Number of iterations used by \code{rstan::sampling}}
 

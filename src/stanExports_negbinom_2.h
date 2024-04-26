@@ -29,42 +29,42 @@ using namespace stan::math;
 stan::math::profile_map profiles__;
 static constexpr std::array<const char*, 74> locations_array__ =
   {" (found before start of program)",
-  " (in 'negbinom_2', line 25, column 2 to column 14)",
-  " (in 'negbinom_2', line 26, column 2 to column 12)",
+  " (in 'negbinom_2', line 22, column 2 to column 14)",
+  " (in 'negbinom_2', line 23, column 2 to column 12)",
+  " (in 'negbinom_2', line 24, column 2 to column 23)",
+  " (in 'negbinom_2', line 25, column 2 to column 23)",
+  " (in 'negbinom_2', line 26, column 2 to column 23)",
   " (in 'negbinom_2', line 27, column 2 to column 23)",
-  " (in 'negbinom_2', line 28, column 2 to column 23)",
-  " (in 'negbinom_2', line 29, column 2 to column 23)",
-  " (in 'negbinom_2', line 30, column 2 to column 23)",
+  " (in 'negbinom_2', line 28, column 2 to column 25)",
+  " (in 'negbinom_2', line 29, column 2 to column 25)",
+  " (in 'negbinom_2', line 30, column 2 to column 25)",
   " (in 'negbinom_2', line 31, column 2 to column 25)",
   " (in 'negbinom_2', line 32, column 2 to column 25)",
   " (in 'negbinom_2', line 33, column 2 to column 25)",
-  " (in 'negbinom_2', line 34, column 2 to column 25)",
-  " (in 'negbinom_2', line 35, column 2 to column 24)",
-  " (in 'negbinom_2', line 36, column 2 to column 24)",
-  " (in 'negbinom_2', line 62, column 2 to column 22)",
-  " (in 'negbinom_2', line 63, column 2 to column 22)",
-  " (in 'negbinom_2', line 64, column 2 to column 25)",
-  " (in 'negbinom_2', line 66, column 4 to column 92)",
-  " (in 'negbinom_2', line 67, column 4 to column 85)",
-  " (in 'negbinom_2', line 69, column 4 to line 70, column 94)",
-  " (in 'negbinom_2', line 65, column 22 to line 71, column 3)",
-  " (in 'negbinom_2', line 65, column 2 to line 71, column 3)",
-  " (in 'negbinom_2', line 40, column 4 to column 83)",
-  " (in 'negbinom_2', line 41, column 4 to column 76)",
-  " (in 'negbinom_2', line 39, column 22 to line 42, column 3)",
-  " (in 'negbinom_2', line 39, column 2 to line 42, column 3)",
-  " (in 'negbinom_2', line 43, column 2 to column 40)",
-  " (in 'negbinom_2', line 44, column 2 to column 34)",
-  " (in 'negbinom_2', line 46, column 2 to column 44)",
-  " (in 'negbinom_2', line 47, column 2 to column 44)",
-  " (in 'negbinom_2', line 49, column 2 to column 47)",
-  " (in 'negbinom_2', line 50, column 2 to column 47)",
-  " (in 'negbinom_2', line 52, column 2 to column 47)",
-  " (in 'negbinom_2', line 53, column 2 to column 47)",
-  " (in 'negbinom_2', line 55, column 2 to column 37)",
-  " (in 'negbinom_2', line 56, column 2 to column 37)",
-  " (in 'negbinom_2', line 58, column 2 to column 37)",
-  " (in 'negbinom_2', line 59, column 2 to column 37)",
+  " (in 'negbinom_2', line 54, column 2 to column 22)",
+  " (in 'negbinom_2', line 55, column 2 to column 22)",
+  " (in 'negbinom_2', line 56, column 2 to column 25)",
+  " (in 'negbinom_2', line 58, column 4 to column 93)",
+  " (in 'negbinom_2', line 59, column 4 to column 86)",
+  " (in 'negbinom_2', line 60, column 4 to line 61, column 95)",
+  " (in 'negbinom_2', line 57, column 22 to line 62, column 3)",
+  " (in 'negbinom_2', line 57, column 2 to line 62, column 3)",
+  " (in 'negbinom_2', line 37, column 4 to column 84)",
+  " (in 'negbinom_2', line 38, column 4 to column 77)",
+  " (in 'negbinom_2', line 36, column 22 to line 39, column 3)",
+  " (in 'negbinom_2', line 36, column 2 to line 39, column 3)",
+  " (in 'negbinom_2', line 40, column 2 to column 40)",
+  " (in 'negbinom_2', line 41, column 2 to column 34)",
+  " (in 'negbinom_2', line 42, column 2 to column 47)",
+  " (in 'negbinom_2', line 43, column 2 to column 47)",
+  " (in 'negbinom_2', line 44, column 2 to column 47)",
+  " (in 'negbinom_2', line 45, column 2 to column 47)",
+  " (in 'negbinom_2', line 46, column 2 to column 47)",
+  " (in 'negbinom_2', line 47, column 2 to column 47)",
+  " (in 'negbinom_2', line 48, column 2 to column 37)",
+  " (in 'negbinom_2', line 49, column 2 to column 37)",
+  " (in 'negbinom_2', line 50, column 2 to column 37)",
+  " (in 'negbinom_2', line 51, column 2 to column 37)",
   " (in 'negbinom_2', line 2, column 2 to column 22)",
   " (in 'negbinom_2', line 3, column 2 to column 22)",
   " (in 'negbinom_2', line 4, column 8 to column 14)",
@@ -79,29 +79,29 @@ static constexpr std::array<const char*, 74> locations_array__ =
   " (in 'negbinom_2', line 9, column 2 to column 26)",
   " (in 'negbinom_2', line 10, column 2 to column 15)",
   " (in 'negbinom_2', line 11, column 2 to column 23)",
+  " (in 'negbinom_2', line 12, column 2 to column 16)",
+  " (in 'negbinom_2', line 12, column 17 to column 34)",
+  " (in 'negbinom_2', line 12, column 35 to column 53)",
   " (in 'negbinom_2', line 13, column 2 to column 16)",
   " (in 'negbinom_2', line 13, column 17 to column 34)",
   " (in 'negbinom_2', line 13, column 35 to column 53)",
   " (in 'negbinom_2', line 14, column 2 to column 16)",
   " (in 'negbinom_2', line 14, column 17 to column 34)",
   " (in 'negbinom_2', line 14, column 35 to column 53)",
-  " (in 'negbinom_2', line 16, column 2 to column 16)",
-  " (in 'negbinom_2', line 16, column 17 to column 34)",
-  " (in 'negbinom_2', line 16, column 35 to column 53)",
-  " (in 'negbinom_2', line 17, column 2 to column 16)",
-  " (in 'negbinom_2', line 17, column 17 to column 34)",
-  " (in 'negbinom_2', line 17, column 35 to column 53)",
-  " (in 'negbinom_2', line 19, column 2 to column 18)",
-  " (in 'negbinom_2', line 20, column 2 to column 19)",
-  " (in 'negbinom_2', line 21, column 2 to column 18)",
-  " (in 'negbinom_2', line 22, column 2 to column 19)",
+  " (in 'negbinom_2', line 15, column 2 to column 16)",
+  " (in 'negbinom_2', line 15, column 17 to column 34)",
+  " (in 'negbinom_2', line 15, column 35 to column 53)",
+  " (in 'negbinom_2', line 16, column 2 to column 19)",
+  " (in 'negbinom_2', line 17, column 2 to column 20)",
+  " (in 'negbinom_2', line 18, column 2 to column 19)",
+  " (in 'negbinom_2', line 19, column 2 to column 20)",
+  " (in 'negbinom_2', line 24, column 9 to column 15)",
+  " (in 'negbinom_2', line 25, column 9 to column 15)",
+  " (in 'negbinom_2', line 26, column 9 to column 15)",
   " (in 'negbinom_2', line 27, column 9 to column 15)",
-  " (in 'negbinom_2', line 28, column 9 to column 15)",
-  " (in 'negbinom_2', line 29, column 9 to column 15)",
-  " (in 'negbinom_2', line 30, column 9 to column 15)",
-  " (in 'negbinom_2', line 62, column 14 to column 20)",
-  " (in 'negbinom_2', line 63, column 14 to column 20)",
-  " (in 'negbinom_2', line 64, column 9 to column 15)"};
+  " (in 'negbinom_2', line 54, column 14 to column 20)",
+  " (in 'negbinom_2', line 55, column 14 to column 20)",
+  " (in 'negbinom_2', line 56, column 9 to column 15)"};
 #include <stan_meta_header.hpp>
 class model_negbinom_2 final : public model_base_crtp<model_negbinom_2> {
 private:
@@ -127,10 +127,10 @@ private:
   double def_a_mu;
   double sd_def_a_mu;
   double sd_def_a_sig;
-  double phi_att_mu;
-  double phi_att_sig;
-  double phi_def_mu;
-  double phi_def_sig;
+  double phi_home_mu;
+  double phi_home_sig;
+  double phi_away_mu;
+  double phi_away_sig;
 public:
   ~model_negbinom_2() {}
   model_negbinom_2(stan::io::var_context& context__, unsigned int
@@ -306,29 +306,29 @@ public:
       current_statement__ = 62;
       sd_def_a_sig = context__.vals_r("sd_def_a_sig")[(1 - 1)];
       current_statement__ = 63;
-      context__.validate_dims("data initialization", "phi_att_mu", "double",
+      context__.validate_dims("data initialization", "phi_home_mu", "double",
         std::vector<size_t>{});
-      phi_att_mu = std::numeric_limits<double>::quiet_NaN();
+      phi_home_mu = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 63;
-      phi_att_mu = context__.vals_r("phi_att_mu")[(1 - 1)];
+      phi_home_mu = context__.vals_r("phi_home_mu")[(1 - 1)];
       current_statement__ = 64;
-      context__.validate_dims("data initialization", "phi_att_sig", "double",
-        std::vector<size_t>{});
-      phi_att_sig = std::numeric_limits<double>::quiet_NaN();
+      context__.validate_dims("data initialization", "phi_home_sig",
+        "double", std::vector<size_t>{});
+      phi_home_sig = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 64;
-      phi_att_sig = context__.vals_r("phi_att_sig")[(1 - 1)];
+      phi_home_sig = context__.vals_r("phi_home_sig")[(1 - 1)];
       current_statement__ = 65;
-      context__.validate_dims("data initialization", "phi_def_mu", "double",
+      context__.validate_dims("data initialization", "phi_away_mu", "double",
         std::vector<size_t>{});
-      phi_def_mu = std::numeric_limits<double>::quiet_NaN();
+      phi_away_mu = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 65;
-      phi_def_mu = context__.vals_r("phi_def_mu")[(1 - 1)];
+      phi_away_mu = context__.vals_r("phi_away_mu")[(1 - 1)];
       current_statement__ = 66;
-      context__.validate_dims("data initialization", "phi_def_sig", "double",
-        std::vector<size_t>{});
-      phi_def_sig = std::numeric_limits<double>::quiet_NaN();
+      context__.validate_dims("data initialization", "phi_away_sig",
+        "double", std::vector<size_t>{});
+      phi_away_sig = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 66;
-      phi_def_sig = context__.vals_r("phi_def_sig")[(1 - 1)];
+      phi_away_sig = context__.vals_r("phi_away_sig")[(1 - 1)];
       current_statement__ = 67;
       stan::math::validate_non_negative_index("att_h", "nteams", nteams);
       current_statement__ = 68;
@@ -418,14 +418,14 @@ public:
       current_statement__ = 10;
       sd_def_a = in__.template read_constrain_lb<local_scalar_t__,
                    jacobian__>(0, lp__);
-      local_scalar_t__ phi_att = DUMMY_VAR__;
+      local_scalar_t__ phi_home = DUMMY_VAR__;
       current_statement__ = 11;
-      phi_att = in__.template read_constrain_lb<local_scalar_t__,
-                  jacobian__>(0, lp__);
-      local_scalar_t__ phi_def = DUMMY_VAR__;
+      phi_home = in__.template read_constrain_lb<local_scalar_t__,
+                   jacobian__>(0, lp__);
+      local_scalar_t__ phi_away = DUMMY_VAR__;
       current_statement__ = 12;
-      phi_def = in__.template read_constrain_lb<local_scalar_t__,
-                  jacobian__>(0, lp__);
+      phi_away = in__.template read_constrain_lb<local_scalar_t__,
+                   jacobian__>(0, lp__);
       {
         current_statement__ = 24;
         for (int g = 1; g <= ngames; ++g) {
@@ -440,7 +440,7 @@ public:
                            stan::model::rvalue(def_a, "def_a",
                              stan::model::index_uni(
                                stan::model::rvalue(a, "a",
-                                 stan::model::index_uni(g))))), phi_att));
+                                 stan::model::index_uni(g))))), phi_home));
           current_statement__ = 22;
           lp_accum__.add(stan::math::neg_binomial_2_log_lpmf<propto__>(
                            stan::model::rvalue(y2, "y2",
@@ -452,7 +452,7 @@ public:
                            stan::model::rvalue(def_h, "def_h",
                              stan::model::index_uni(
                                stan::model::rvalue(h, "h",
-                                 stan::model::index_uni(g))))), phi_def));
+                                 stan::model::index_uni(g))))), phi_away));
         }
         current_statement__ = 25;
         lp_accum__.add(stan::math::normal_lpdf<propto__>(beta_0, beta_0_mu,
@@ -461,11 +461,11 @@ public:
         lp_accum__.add(stan::math::normal_lpdf<propto__>(home, home_mu,
                          home_sd));
         current_statement__ = 27;
-        lp_accum__.add(stan::math::cauchy_lpdf<propto__>(phi_att, phi_att_mu,
-                         phi_att_sig));
+        lp_accum__.add(stan::math::cauchy_lpdf<propto__>(phi_home,
+                         phi_home_mu, phi_home_sig));
         current_statement__ = 28;
-        lp_accum__.add(stan::math::cauchy_lpdf<propto__>(phi_def, phi_def_mu,
-                         phi_def_sig));
+        lp_accum__.add(stan::math::cauchy_lpdf<propto__>(phi_away,
+                         phi_away_mu, phi_away_sig));
         current_statement__ = 29;
         lp_accum__.add(stan::math::cauchy_lpdf<propto__>(sd_att_h,
                          sd_att_h_mu, sd_att_h_sig));
@@ -574,14 +574,14 @@ public:
       current_statement__ = 10;
       sd_def_a = in__.template read_constrain_lb<local_scalar_t__,
                    jacobian__>(0, lp__);
-      double phi_att = std::numeric_limits<double>::quiet_NaN();
+      double phi_home = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 11;
-      phi_att = in__.template read_constrain_lb<local_scalar_t__,
-                  jacobian__>(0, lp__);
-      double phi_def = std::numeric_limits<double>::quiet_NaN();
+      phi_home = in__.template read_constrain_lb<local_scalar_t__,
+                   jacobian__>(0, lp__);
+      double phi_away = std::numeric_limits<double>::quiet_NaN();
       current_statement__ = 12;
-      phi_def = in__.template read_constrain_lb<local_scalar_t__,
-                  jacobian__>(0, lp__);
+      phi_away = in__.template read_constrain_lb<local_scalar_t__,
+                   jacobian__>(0, lp__);
       out__.write(beta_0);
       out__.write(home);
       out__.write(att_h);
@@ -592,8 +592,8 @@ public:
       out__.write(sd_att_a);
       out__.write(sd_def_h);
       out__.write(sd_def_a);
-      out__.write(phi_att);
-      out__.write(phi_def);
+      out__.write(phi_home);
+      out__.write(phi_away);
       if (stan::math::logical_negation(
             (stan::math::primitive_value(emit_transformed_parameters__) ||
             stan::math::primitive_value(emit_generated_quantities__)))) {
@@ -620,7 +620,7 @@ public:
             stan::model::rvalue(def_a, "def_a",
               stan::model::index_uni(
                 stan::model::rvalue(a, "a", stan::model::index_uni(g))))),
-            phi_att, base_rng__), "assigning variable y1_pred",
+            phi_home, base_rng__), "assigning variable y1_pred",
           stan::model::index_uni(g));
         current_statement__ = 17;
         stan::model::assign(y2_pred,
@@ -631,7 +631,7 @@ public:
             stan::model::rvalue(def_h, "def_h",
               stan::model::index_uni(
                 stan::model::rvalue(h, "h", stan::model::index_uni(g))))),
-            phi_def, base_rng__), "assigning variable y2_pred",
+            phi_away, base_rng__), "assigning variable y2_pred",
           stan::model::index_uni(g));
         current_statement__ = 18;
         stan::model::assign(log_lik,
@@ -644,7 +644,7 @@ public:
              stan::model::rvalue(def_a, "def_a",
                stan::model::index_uni(
                  stan::model::rvalue(a, "a", stan::model::index_uni(g))))),
-             phi_att) +
+             phi_home) +
           stan::math::neg_binomial_2_log_lpmf<false>(
             stan::model::rvalue(y2, "y2", stan::model::index_uni(g)),
             ((beta_0 +
@@ -654,7 +654,7 @@ public:
             stan::model::rvalue(def_h, "def_h",
               stan::model::index_uni(
                 stan::model::rvalue(h, "h", stan::model::index_uni(g))))),
-            phi_def)), "assigning variable log_lik",
+            phi_away)), "assigning variable log_lik",
           stan::model::index_uni(g));
       }
       out__.write(y1_pred);
@@ -732,14 +732,14 @@ public:
       current_statement__ = 10;
       sd_def_a = in__.read<local_scalar_t__>();
       out__.write_free_lb(0, sd_def_a);
-      local_scalar_t__ phi_att = DUMMY_VAR__;
+      local_scalar_t__ phi_home = DUMMY_VAR__;
       current_statement__ = 11;
-      phi_att = in__.read<local_scalar_t__>();
-      out__.write_free_lb(0, phi_att);
-      local_scalar_t__ phi_def = DUMMY_VAR__;
+      phi_home = in__.read<local_scalar_t__>();
+      out__.write_free_lb(0, phi_home);
+      local_scalar_t__ phi_away = DUMMY_VAR__;
       current_statement__ = 12;
-      phi_def = in__.read<local_scalar_t__>();
-      out__.write_free_lb(0, phi_def);
+      phi_away = in__.read<local_scalar_t__>();
+      out__.write_free_lb(0, phi_away);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -786,10 +786,10 @@ public:
       context__.validate_dims("parameter initialization", "sd_def_a",
         "double", std::vector<size_t>{});
       current_statement__ = 11;
-      context__.validate_dims("parameter initialization", "phi_att",
+      context__.validate_dims("parameter initialization", "phi_home",
         "double", std::vector<size_t>{});
       current_statement__ = 12;
-      context__.validate_dims("parameter initialization", "phi_def",
+      context__.validate_dims("parameter initialization", "phi_away",
         "double", std::vector<size_t>{});
       int pos__ = std::numeric_limits<int>::min();
       pos__ = 1;
@@ -889,14 +889,14 @@ public:
       current_statement__ = 10;
       sd_def_a = context__.vals_r("sd_def_a")[(1 - 1)];
       out__.write_free_lb(0, sd_def_a);
-      local_scalar_t__ phi_att = DUMMY_VAR__;
+      local_scalar_t__ phi_home = DUMMY_VAR__;
       current_statement__ = 11;
-      phi_att = context__.vals_r("phi_att")[(1 - 1)];
-      out__.write_free_lb(0, phi_att);
-      local_scalar_t__ phi_def = DUMMY_VAR__;
+      phi_home = context__.vals_r("phi_home")[(1 - 1)];
+      out__.write_free_lb(0, phi_home);
+      local_scalar_t__ phi_away = DUMMY_VAR__;
       current_statement__ = 12;
-      phi_def = context__.vals_r("phi_def")[(1 - 1)];
-      out__.write_free_lb(0, phi_def);
+      phi_away = context__.vals_r("phi_away")[(1 - 1)];
+      out__.write_free_lb(0, phi_away);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -907,7 +907,7 @@ public:
                   emit_generated_quantities__ = true) const {
     names__ = std::vector<std::string>{"beta_0", "home", "att_h", "att_a",
                 "def_h", "def_a", "sd_att_h", "sd_att_a", "sd_def_h",
-                "sd_def_a", "phi_att", "phi_def"};
+                "sd_def_a", "phi_home", "phi_away"};
     if (emit_transformed_parameters__) {}
     if (emit_generated_quantities__) {
       std::vector<std::string> temp{"y1_pred", "y2_pred", "log_lik"};
@@ -964,8 +964,8 @@ public:
     param_names__.emplace_back(std::string() + "sd_att_a");
     param_names__.emplace_back(std::string() + "sd_def_h");
     param_names__.emplace_back(std::string() + "sd_def_a");
-    param_names__.emplace_back(std::string() + "phi_att");
-    param_names__.emplace_back(std::string() + "phi_def");
+    param_names__.emplace_back(std::string() + "phi_home");
+    param_names__.emplace_back(std::string() + "phi_away");
     if (emit_transformed_parameters__) {}
     if (emit_generated_quantities__) {
       for (int sym1__ = 1; sym1__ <= ngames; ++sym1__) {
@@ -1008,8 +1008,8 @@ public:
     param_names__.emplace_back(std::string() + "sd_att_a");
     param_names__.emplace_back(std::string() + "sd_def_h");
     param_names__.emplace_back(std::string() + "sd_def_a");
-    param_names__.emplace_back(std::string() + "phi_att");
-    param_names__.emplace_back(std::string() + "phi_def");
+    param_names__.emplace_back(std::string() + "phi_home");
+    param_names__.emplace_back(std::string() + "phi_away");
     if (emit_transformed_parameters__) {}
     if (emit_generated_quantities__) {
       for (int sym1__ = 1; sym1__ <= ngames; ++sym1__) {
@@ -1027,10 +1027,10 @@ public:
     }
   }
   inline std::string get_constrained_sizedtypes() const {
-    return std::string("[{\"name\":\"beta_0\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"home\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"att_h\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"att_a\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"def_h\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"def_a\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"sd_att_h\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_att_a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def_h\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def_a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_att\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_def\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y1_pred\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(ngames) + ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"y2_pred\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(ngames) + ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ngames) + "},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"beta_0\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"home\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"att_h\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"att_a\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"def_h\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"def_a\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"sd_att_h\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_att_a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def_h\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def_a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_home\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_away\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y1_pred\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(ngames) + ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"y2_pred\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(ngames) + ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ngames) + "},\"block\":\"generated_quantities\"}]");
   }
   inline std::string get_unconstrained_sizedtypes() const {
-    return std::string("[{\"name\":\"beta_0\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"home\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"att_h\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"att_a\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"def_h\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"def_a\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"sd_att_h\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_att_a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def_h\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def_a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_att\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_def\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y1_pred\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(ngames) + ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"y2_pred\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(ngames) + ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ngames) + "},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"beta_0\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"home\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"att_h\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"att_a\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"def_h\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"def_a\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nteams) + "},\"block\":\"parameters\"},{\"name\":\"sd_att_h\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_att_a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def_h\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"sd_def_a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_home\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"phi_away\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y1_pred\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(ngames) + ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"y2_pred\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(ngames) + ",\"element_type\":{\"name\":\"int\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ngames) + "},\"block\":\"generated_quantities\"}]");
   }
   // Begin method overload boilerplate
   template <typename RNG> inline void
