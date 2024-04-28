@@ -8,12 +8,18 @@ The goal of footstan is to be a tool for adjusting bayesian models to football r
 
 ## Installation
 
-You can install the development version of footstan from [GitHub](https://github.com/) with:
+### On Linux:
 
 ``` r
-if(!require(devtools)) install.packages("devtools")
-devtools::install_github("ArthurGontijo/footstan")
+install.packages("https://github.com/ArthurGontijo/footstan/releases/download/v1.0.0/footstan.tar.gz", repos = NULL, type = "source")
 ```
+
+### On Windows:
+
+``` r
+install.packages("https://github.com/ArthurGontijo/footstan/releases/download/v1.0.0/footstan.zip", repos = NULL, type = "win.binary")
+```
+
 
 ## Example
 
@@ -44,11 +50,11 @@ beta_0_hyp <- c(0, 10)
 # home ~ N(0, 10)
 home_hyp <- c(0, 10)
 
-# sd_att ~ Cauchy(0, 2.5)
-sd_att_hyp <- c(0, 2.5)
+# att_sd ~ Cauchy(0, 2.5)
+att_sd_hyp <- c(0, 2.5)
 
-# sd_def ~ Cauchy(0, 2.5)
-sd_def_hyp <- c(0, 2.5)
+# def_sd ~ Cauchy(0, 2.5)
+def_sd_hyp <- c(0, 2.5)
 ```
 
 To fit the model, we simply run:
@@ -57,8 +63,8 @@ To fit the model, we simply run:
 fit <- fit_poisson(data = games, 
                 beta_0_hyp = beta_0_hyp,
                 home_hyp = home_hyp,
-                sd_att_hyp = sd_att_hyp,
-                sd_def_hyp = sd_def_hyp,
+                att_sd_hyp = att_sd_hyp,
+                def_sd_hyp = def_sd_hyp,
                 chains = 2,
                 iter = 2000)
 ```
@@ -66,8 +72,7 @@ fit <- fit_poisson(data = games,
 Now you can diagnose how well Stan sampled the parameters:
 
 ```r
-visual_diagnostic(fit, "att[1]")
-visual_diagnostic(fit, "beta_0")
+visual_diagnostic(fit, c("beta_0", "home", "att[1]"))
 ```
 
 And you can even use new data to make predictions:
@@ -77,5 +82,3 @@ new_data <- data.frame(h = c(1, 3), a = c(2, 4))
 predictions <- predict(fit, new_data)
 plot_predictions(predictions)
 ```
-
-
